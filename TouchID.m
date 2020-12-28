@@ -54,6 +54,11 @@ RCT_EXPORT_METHOD(authenticate: (NSString *)reason
         NSString *fallbackLabel = [RCTConvert NSString:options[@"fallbackLabel"]];
         context.localizedFallbackTitle = fallbackLabel;
     }
+    
+    if (RCTNilIfNull([options objectForKey:@"cancelTitle"]) != nil) {
+        NSString *fallbackLabel = [RCTConvert NSString:options[@"cancelTitle"]];
+        context.localizedCancelTitle = fallbackLabel;
+    }
 
     if (RCTNilIfNull([options objectForKey:@"passcodeFallback"]) != nil) {
         passcodeFallback = [RCTConvert NSNumber:options[@"passcodeFallback"]];
